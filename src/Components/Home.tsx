@@ -20,7 +20,7 @@ const Home = ({}) => {
 
   return (
     <div>
-      <h2>Welcome Home</h2>
+      <h2>Welcome</h2>
       {account.connected ? (
         <div> {JSON.stringify(account, null, 4)}</div>
       ) : (
