@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Register from "Components/Register";
+import * as React from "react";
+import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import { useAppSelector } from "./Features/Store";
 
-function App() {
+const App = () => {
+  const account = useAppSelector((state) => state.account);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div className="w-screen h-screen flex flex-col items-center justify-center bg-gray-200 px-12 py-8">
+            <Outlet />
+          </div>
+        }
+      >
+        {account.connected ? (
+          <>
+            <Route path="/home" element={<Home />} />
+            <Route path="*" element={<Navigate to="/home" />} />
+          </>
+        ) : (
+          <>
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
+            <Route
+              path="*"
+              element={
+                <>
+                  <Navigate to="/login" />
+                </>
+              }
+            />
+          </>
+        )}
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
