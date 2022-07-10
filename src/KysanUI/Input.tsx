@@ -10,7 +10,7 @@ const Input = (
     <input
       onChange={(e) => onChange(e.currentTarget.value)}
       className={
-        "appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-300 focus:outline-none focus:ring-1 focus:ring-green-600 focus:shadow-md" +
+        "appearance-none border-2 border-gray-100 rounded-lg px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-600 focus:shadow-md" +
         " " +
         style
       }

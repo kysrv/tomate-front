@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AccountSlice, { AccountActions } from "../Features/Account";
-import { useAppDispatch, useAppSelector } from "../Features/Store";
+
 import Brand from "./Brand";
 import { Input, Vertical, Horizontal, Button } from "KysanUI";
 import accountService from "Services/accountService";
+
+import { useAppDispatch, useAppSelector } from "Features/Store";
+import { AccountActions } from "Features/Account";
 
 const Register = ({}) => {
   const [username, setUsername] = useState("");
@@ -49,7 +51,7 @@ const Register = ({}) => {
       );
 
       // * then go to the home page
-      navigate("/home");
+      navigate("/app");
     }
 
     // * then we sotp the loading
@@ -57,7 +59,7 @@ const Register = ({}) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-row bg-gray-200 items-center justify-center">
+    <div className="w-full h-full flex flex-row items-center justify-center">
       <Brand />
       <div className="flex grow"></div>
       <div

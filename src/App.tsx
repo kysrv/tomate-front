@@ -1,42 +1,38 @@
-import Register from "Components/Register";
+import Login from "Components/Auth/Login";
+import Register from "Components/Auth/Register";
 import * as React from "react";
 import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
-import Home from "./Components/Home";
-import Login from "./Components/Login";
+import Tomate from "./Components/TomateApp/TomateApp";
+
 import { useAppSelector } from "./Features/Store";
 
 const App = () => {
   const account = useAppSelector((state) => state.account);
 
+  const path = localStorage.getItem("token") ? "app" : "login";
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    navigate(path);
+  }, []);
+
   return (
     <Routes>
       <Route
-        path="/"
         element={
-          <div className="w-screen h-screen flex flex-col items-center justify-center bg-gray-200 px-12 py-8">
+          <div className="w-screen h-screen flex flex-col items-center justify-center px-12 py-8 bg-gradient-to-r from-blue-200 to-red-400">
             <Outlet />
           </div>
         }
       >
-        {account.connected ? (
+        {localStorage.getItem("token") ? (
           <>
-            <Route path="/home" element={<Home />} />
-            <Route path="*" element={<Navigate to="/home" />} />
+            <Route path="app/*" element={<Tomate />} />
           </>
         ) : (
           <>
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-
-            <Route
-              path="*"
-              element={
-                <>
-                  <Navigate to="/login" />
-                </>
-              }
-            />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
           </>
         )}
       </Route>
