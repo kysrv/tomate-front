@@ -1,9 +1,11 @@
 import { combineReducers, configureStore, Store } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import AccountSlice from "./Account";
+import UsersSlice from "./Users";
 
 const reducer = combineReducers({
   account: AccountSlice.reducer,
+  users: UsersSlice.reducer,
 });
 
 const store = configureStore({ reducer });

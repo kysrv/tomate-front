@@ -18,11 +18,14 @@ const register = async (username: string, password: string) => {
   return data.token;
 };
 
-const fetchUserProfile = async () => {
+const getUserProfile = async () => {
   const { data: userProfile } = await api.get("/profile");
 
   return userProfile;
 };
 
-const accountService = { login, register, getUserProfile: fetchUserProfile };
-export default accountService;
+export const accountService = {
+  login,
+  register,
+  getUserProfile,
+};

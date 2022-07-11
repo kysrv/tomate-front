@@ -20,7 +20,7 @@ const NavBar = ({}) => {
   };
 
   return (
-    <nav className="h-screen w-64 flex flex-col px-4 py-8 bg-gray-800 border-gray-600">
+    <nav className="h-full w-64 flex flex-col px-4 py-8 bg-gray-800 border-gray-600 select-none">
       <h2 className="text-3xl font-semibold text-white">Tomate</h2>
       <div className="my-6">{/*space*/}</div>
       <div className="flex flex-col h-full gap-4 overflow-auto">

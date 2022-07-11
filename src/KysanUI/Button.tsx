@@ -7,7 +7,7 @@ const Button = (
 
   return (
     <div
-      className={"rounded bg-green-600 p-1 w-max" + " " + style}
+      className={" rounded bg-green-600 p-1 w-max " + style}
       {...props}
     ></div>
   );

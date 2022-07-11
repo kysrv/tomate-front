@@ -20,7 +20,7 @@ const App = () => {
     <Routes>
       <Route
         element={
-          <div className="w-screen h-screen flex flex-col items-center justify-center px-12 py-8 bg-gradient-to-r from-blue-200 to-red-400">
+          <div className="w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-200 to-red-400">
             <Outlet />
           </div>
         }

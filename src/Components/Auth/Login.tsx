@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Brand from "./Brand";
 import { Input, Vertical, Horizontal, Button } from "KysanUI";
-import accountService from "Services/accountService";
+
 import { useAppDispatch, useAppSelector } from "Features/Store";
 import { AccountActions } from "Features/Account";
+import { accountService } from "Services/accountService";
 
 const Login = ({}) => {
   const [username, setUsername] = useState("");
@@ -57,7 +58,7 @@ const Login = ({}) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-row items-center justify-center">
+    <div className="w-full h-full flex flex-row items-center justify-center px-12 py-8">
       <Brand />
       <div className="flex grow"></div>
       <div

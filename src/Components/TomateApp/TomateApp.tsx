@@ -9,10 +9,14 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import accountService from "Services/accountService";
+import { accountService } from "Services/accountService";
+
 import { useAppDispatch, useAppSelector } from "../../Features/Store";
 import Dashboard from "./Dashboard";
 import NavBar from "./NavBar";
+import Pomodoro from "./Pomodoro";
+import Settings from "./Settings";
+import Users from "./Users";
 
 const TomateApp = ({}) => {
   const account = useAppSelector((store) => store.account);
@@ -37,16 +41,16 @@ const TomateApp = ({}) => {
   pageName = pageName[0].toUpperCase() + pageName.slice(1);
 
   return (
-    <div className="w-screen h-screen flex flex-row bg-gray-800 ">
+    <div className="w-screen h-screen flex flex-row bg-gray-800 select-none">
       <NavBar />
       <div className="w-full h-full bg-gray-300 rounded-l-lg p-10 flex flex-col">
         <h2 className="text-4xl fond-bold pb-10">{pageName}</h2>
 
         <Routes>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="users" element={<>users</>} />
-          <Route path="pomodoro" element={<>tomodoro</>} />
-          <Route path="settings" element={<>settings</>} />
+          <Route path="users" element={<Users />} />
+          <Route path="pomodoro" element={<Pomodoro />} />
+          <Route path="settings" element={<Settings />} />
           <Route path="*" element={<Navigate to="dashboard" />} />
         </Routes>
       </div>
