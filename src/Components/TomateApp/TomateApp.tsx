@@ -12,11 +12,11 @@ import {
 import { accountService } from "Services/accountService";
 
 import { useAppDispatch, useAppSelector } from "../../Features/Store";
-import Dashboard from "./Dashboard";
-import NavBar from "./NavBar";
-import Pomodoro from "./Pomodoro";
-import Settings from "./Settings";
-import Users from "./Users";
+import Dashboard from "./Dashboard/Dashboard";
+import NavBar from "./NavBar/NavBar";
+import Pomodoro from "./Pomodoro/Pomodoro";
+import Settings from "./Settings/Settings";
+import Users from "./Users/Users";
 
 const TomateApp = ({}) => {
   const account = useAppSelector((store) => store.account);

@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import store from "./Features/Store";
-import App from "./App";
+import Router from "./Router";
 
 // * to win a lot of time
 import { ToastContainer } from "react-toastify";
@@ -17,7 +17,7 @@ root.render(
   <BrowserRouter>
     <ToastContainer newestOnTop hideProgressBar />
     <Provider store={store}>
-      <App />
+      <Router />
     </Provider>
   </BrowserRouter>
 );

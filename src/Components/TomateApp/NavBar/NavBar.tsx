@@ -1,9 +1,9 @@
 import { useAppSelector } from "Features/Store";
-import ChartIcon from "Icons/ChartIcon";
-import ClockIcon from "Icons/ClockIcon";
-import LogOutIcon from "Icons/LogoutIcon";
-import SettingsIcon from "Icons/SettingsIcon";
-import UserIcon from "Icons/UsersIcon";
+import ChartIcon from "KysanUI/Icons/ChartIcon";
+import ClockIcon from "KysanUI/Icons/ClockIcon";
+import LogOutIcon from "KysanUI/Icons/LogoutIcon";
+import SettingsIcon from "KysanUI/Icons/SettingsIcon";
+import UserIcon from "KysanUI/Icons/UsersIcon";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBarButton from "./NavBarButton";

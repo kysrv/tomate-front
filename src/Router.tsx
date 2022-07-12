@@ -2,19 +2,20 @@ import Login from "Components/Auth/Login";
 import Register from "Components/Auth/Register";
 import * as React from "react";
 import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
-import Tomate from "./Components/TomateApp/TomateApp";
+import TomateApp from "./Components/TomateApp/TomateApp";
 
 import { useAppSelector } from "./Features/Store";
 
-const App = () => {
-  const account = useAppSelector((state) => state.account);
+const Router = () => {
+  const isConnected = localStorage.getItem("token");
 
-  const path = localStorage.getItem("token") ? "app" : "login";
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    navigate(path);
-  }, []);
+  // React.useEffect(() => {
+  //   if (!isConnected) {
+  //     navigate("/login");
+  //   }
+  // }, []);
 
   return (
     <Routes>
@@ -25,19 +26,20 @@ const App = () => {
           </div>
         }
       >
-        {localStorage.getItem("token") ? (
+        {/* {isConnected ? (
           <>
-            <Route path="app/*" element={<Tomate />} />
+            <Route path="app/*" element={<TomateApp />} />
           </>
-        ) : (
-          <>
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </>
-        )}
+        ) : ( */}
+        <>
+          <Route path="app/*" element={<TomateApp />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </>
+        {/* )} */}
       </Route>
     </Routes>
   );
 };
 
-export default App;
+export default Router;

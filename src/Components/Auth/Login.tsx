@@ -7,6 +7,7 @@ import { Input, Vertical, Horizontal, Button } from "KysanUI";
 import { useAppDispatch, useAppSelector } from "Features/Store";
 import { AccountActions } from "Features/Account";
 import { accountService } from "Services/accountService";
+import AuthForm from "./AuthForm";
 
 const Login = ({}) => {
   const [username, setUsername] = useState("");
@@ -58,46 +59,39 @@ const Login = ({}) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-row items-center justify-center px-12 py-8">
-      <Brand />
-      <div className="flex grow"></div>
-      <div
-        className="flex flex-col rounded-md bg-white p-10 shadow-xl gap-10 w-full mx-32"
-        style={{ width: "536px" }}
-      >
-        <h2 className="text-3xl text-center font-semibold text-gray-800 text-left w-full">
-          Welcome back
-        </h2>
-        <div className="flex flex-col gap-4">
-          <div className="gap-2 flex flex-col">
-            <label className="text-gray-500">Username</label>
-            <Input
-              value={username}
-              placeholder="Enter your username"
-              onChange={(value) => setUsername(value)}
-            ></Input>
-          </div>
-          <div className="gap-2 flex flex-col">
-            <label className="text-gray-500">Password</label>
-            <Input
-              value={password}
-              placeholder="Enter your password"
-              type="password"
-              onChange={(value) => setPassword(value)}
-            ></Input>
-          </div>
+    <AuthForm>
+      <h2 className="text-3xl text-center font-semibold text-gray-800 text-left w-full">
+        Welcome back
+      </h2>
+      <div className="flex flex-col gap-4">
+        <div className="gap-2 flex flex-col">
+          <label className="text-gray-500">Username</label>
+          <Input
+            value={username}
+            placeholder="Enter your username"
+            onChange={(value) => setUsername(value)}
+          ></Input>
         </div>
-        <button
-          className="w-full py-4 bg-green-600 rounded-lg text-green-100"
-          onClick={handleConnect}
-        >
-          Login
-        </button>
-        <Link to="/register">
-          <div className="font-medium text-gray-400">Create an account</div>
-        </Link>
+        <div className="gap-2 flex flex-col">
+          <label className="text-gray-500">Password</label>
+          <Input
+            value={password}
+            placeholder="Enter your password"
+            type="password"
+            onChange={(value) => setPassword(value)}
+          ></Input>
+        </div>
       </div>
-    </div>
+      <button
+        className="w-full py-4 bg-green-600 rounded-lg text-green-100"
+        onClick={handleConnect}
+      >
+        Login
+      </button>
+      <Link to="/register">
+        <div className="font-medium text-gray-400">Create an account</div>
+      </Link>
+    </AuthForm>
   );
 };
 
