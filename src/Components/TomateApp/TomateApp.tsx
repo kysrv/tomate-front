@@ -37,8 +37,13 @@ const TomateApp = ({}) => {
   const location = useLocation();
 
   const split = location.pathname.split("/");
-  let pageName = split[split.length - 1];
-  pageName = pageName[0].toUpperCase() + pageName.slice(1);
+
+  let pageName = "";
+
+  if (split.length > 2) {
+    pageName = split[split.length - 1];
+    pageName = pageName[0].toUpperCase() + pageName.slice(1);
+  }
 
   return (
     <div className="w-screen h-screen flex flex-row bg-gray-800 select-none">

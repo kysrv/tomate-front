@@ -1,7 +1,14 @@
 import Login from "Components/Auth/Login";
 import Register from "Components/Auth/Register";
 import * as React from "react";
-import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import {
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import TomateApp from "./Components/TomateApp/TomateApp";
 
 import { useAppSelector } from "./Features/Store";
@@ -10,12 +17,17 @@ const Router = () => {
   const isConnected = localStorage.getItem("token");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // React.useEffect(() => {
-  //   if (!isConnected) {
-  //     navigate("/login");
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    if (
+      !isConnected ||
+      location.pathname == "/" ||
+      !location.pathname.match(/\/app\/.*/g)
+    ) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <Routes>
