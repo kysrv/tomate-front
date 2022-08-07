@@ -22,7 +22,7 @@ const Pomodoro = ({}) => {
       AccountActions.setTaskDone({
         id: task._id,
         name,
-        duration: duration,
+        duration: duration * 1000 * 60,
         timestamp: task.timestamp,
       })
     );
