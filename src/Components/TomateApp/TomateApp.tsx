@@ -17,6 +17,7 @@ import NavBar from "./NavBar/NavBar";
 import Pomodoro from "./Pomodoro/Pomodoro";
 import Settings from "./Settings/Settings";
 import Users from "./Users/Users";
+import WalletHome from "./Wallet/Wallet";
 
 const TomateApp = ({}) => {
   const account = useAppSelector((store) => store.account);
@@ -55,6 +56,7 @@ const TomateApp = ({}) => {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="users" element={<Users />} />
           <Route path="pomodoro" element={<Pomodoro />} />
+          <Route path="wallet/*" element={<WalletHome />} />
           <Route path="settings" element={<Settings />} />
           <Route path="*" element={<Navigate to="dashboard" />} />
         </Routes>

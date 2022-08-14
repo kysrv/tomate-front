@@ -1,6 +1,7 @@
 import { useAppSelector } from "Features/Store";
 import ChartIcon from "KysanUI/Icons/ChartIcon";
 import ClockIcon from "KysanUI/Icons/ClockIcon";
+import CreditCardIcon from "KysanUI/Icons/CreditCardIcon";
 import LogOutIcon from "KysanUI/Icons/LogoutIcon";
 import SettingsIcon from "KysanUI/Icons/SettingsIcon";
 import UserIcon from "KysanUI/Icons/UsersIcon";
@@ -36,6 +37,12 @@ const NavBar = ({}) => {
             <div> Pomodoro</div>
           </div>
         </NavBarButton>
+        <NavBarButton to="wallet">
+          <div className="flex gap-2">
+            <CreditCardIcon />
+            <div> Wallet</div>
+          </div>
+        </NavBarButton>
         <NavBarButton to="users">
           <div className="flex gap-2">
             <UserIcon />
@@ -69,7 +76,7 @@ const NavBar = ({}) => {
       <div className="flex items-center px-4 mt-2">
         <img
           className="object-cover mx-2 rounded-full h-9 w-9"
-          src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
+          src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80#https://www.thispersondoesnotexist.com/image"
           alt="avatar"
         />
         <h4 className="mx-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">
