@@ -11,7 +11,7 @@ import Deposit from "./Deposit";
 
 const WalletHome = ({}) => {
   const dispatch = useAppDispatch();
-
+  //.
   // * au chargement du composant
   const init = async () => {
     // * on récpère le wallet
